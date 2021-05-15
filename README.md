@@ -1,8 +1,17 @@
+# Teste e Confiabilidade de Sistemas
+
+</br>
+
+* **Integrantes:** Hêndrick Gonçalves e Alvin Beskow.
+
+</br>
+
 Unity Test API
 ==============
 
 [![Unity Build Status](https://api.travis-ci.org/ThrowTheSwitch/Unity.png?branch=master)](https://travis-ci.org/ThrowTheSwitch/Unity)
 __Copyright (c) 2007 - 2019 Unity Project by Mike Karlesky, Mark VanderVoord, and Greg Williams__
+
 
 Getting Started
 ===============
