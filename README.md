@@ -9,7 +9,7 @@
 
 Test results:
 
-[<img alt="Build Status" src="https://travis-ci.org/HendrickGoncalves/Unity.svg?branch=main" height="40">][travis-url]
+[<img alt="Build Status" src="https://travis-ci.org/HendrickGoncalves/Unity.svg?branch=main" height="40">][https://travis-ci.com/github/HendrickGoncalves/Unity]
 
 Unity Test API
 ==============
