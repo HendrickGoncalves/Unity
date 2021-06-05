@@ -7,13 +7,12 @@
 </br>
 
 
-# Test Results:
+Test results:
 
-[<img alt="Build Status" src="https://www.travis-ci.com/HendrickGoncalves/Travis_Test.svg?token=n9J5MzN5s3sQcxTgPs3Q&branch=main" height="40">][travis-url]
+[![Unity Build Status](https://travis-ci.com/HendrickGoncalves/Unity.svg?branch=main)](https://travis-ci.com/github/HendrickGoncalves/Unity)
 
 Unity Test API
 ==============
 
 __Copyright (c) 2007 - 2019 Unity Project by Mike Karlesky, Mark VanderVoord, and Greg Williams__
-
 
