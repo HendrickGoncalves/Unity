@@ -8,8 +8,8 @@
 
 
 # Test results:
-
-[![Unity Build Status](https://travis-ci.com/HendrickGoncalves/Unity.svg?branch=main](https://travis-ci.com/github/HendrickGoncalves/Unity)
+https://travis-ci.com/HendrickGoncalves/Unity.svg?branch=main
+[![Unity Build Status](https://travis-ci.com/HendrickGoncalves/Unity.svg?branch=main)](https://travis-ci.com/github/HendrickGoncalves/Unity)
 
 Unity Test API
 ==============
