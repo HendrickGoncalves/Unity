@@ -49,9 +49,9 @@ TARGET1 = $(TARGET_BASE1)$(TARGET_EXTENSION)
 SRC_FILES1=\
   $(UNITY_ROOT)/src/unity.c \
   $(UNITY_ROOT)/extras/fixture/src/unity_fixture.c \
-  src/payment.c \
-  test/test_payment.c \
-  test/test_runners/test_payment_runner.c \
+  src/identifier.c \
+  test/test_identifier.c \
+  test/test_runners/test_identifier_runner.c \
   test/test_runners/all_tests.c
 INC_DIRS=-Isrc -I$(UNITY_ROOT)/src -I$(UNITY_ROOT)/extras/fixture/src
 SYMBOLS=
