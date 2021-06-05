@@ -26,7 +26,7 @@ int identifier(void) {
   int  length, valid_id;
   FILE *fp;
 
-  fp = fopen("src/test_file.txt", "r")
+  fp = fopen("src/test_file.txt", "r");
 
   length = 0;
   //printf("Identificador: ");
