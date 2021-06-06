@@ -6,3 +6,9 @@ cov:
 
 clean: 
 	make clean -C examples/identifier
+
+run:
+	./examples/identifier/cov
+
+gcov:
+	gcov -b identifier.gcno	

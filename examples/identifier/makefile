@@ -42,7 +42,7 @@ CFLAGS += -Wstrict-prototypes
 CFLAGS += -Wundef
 CFLAGS += -Wold-style-definition
 CFLAGS += -fprofile-arcs 
-CFLAGS += -ftest-coverage
+CFLAGS += -ftest-coverage 
 
 TARGET_BASE1=all_tests
 TARGET1 = $(TARGET_BASE1)$(TARGET_EXTENSION)
@@ -56,7 +56,7 @@ SRC_FILES1=\
 INC_DIRS=-Isrc -I$(UNITY_ROOT)/src -I$(UNITY_ROOT)/extras/fixture/src
 SYMBOLS=
 
-all: clean compile run
+all: clean cov run valgrind clean sanitizer
 
 cov: 
 	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $@ 
@@ -64,8 +64,15 @@ cov:
 compile:
 	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
 
-run:
+sanitizer: 
+	$(C_COMPILER) $(CFLAGS) -fsanitize=address $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1) 
 	- ./$(TARGET1) -v
+run:
+	- ./cov
+	- gcov -b identifier.gcda
+
+valgrind:
+	valgrind --leak-check=full --show-leak-kinds=all ./cov 
 
 clean:
 	rm -fr $(ALL) *.o *cov* *.dSYM *.gcda *.gcno *.gcov 

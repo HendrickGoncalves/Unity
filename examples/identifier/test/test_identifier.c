@@ -9,6 +9,8 @@ static char str1[] = {"A1\n"};
 static char str2[] = {"A1b2C3d\n"};
 static char str3[] = {"2b3\n"};
 static char str4[] = {"Z-12\n"};
+static char str5[] = {"zed*dd\n"};
+static char str6[] = {" \n"};
 
 void expect(error_code ret_value, char *test_str) {
     FILE *fp;
@@ -17,7 +19,9 @@ void expect(error_code ret_value, char *test_str) {
     if(fp == NULL)
         printf("Error trying to open/create this file!\n");
 
+    //if(test_str != NULL)
     fprintf(fp, test_str);
+    
     fclose(fp);
 
     expected = ret_value;
@@ -57,5 +61,15 @@ TEST(identifier, IdentifierFirstChar) {
 
 TEST(identifier, IdentifierInvalidChar) {
     expect(ret_invalid, str4);
+    IdentifierTestAction();
+}
+
+TEST(identifier, IdentifierInvalidChar2) {
+    expect(ret_invalid, str5);
+    IdentifierTestAction();
+}
+
+TEST(identifier, IdentifierNull) {
+    expect(ret_invalid, str6);
     IdentifierTestAction();
 }

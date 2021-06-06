@@ -1,11 +1,6 @@
 # Teste e Confiabilidade de Sistemas
 
-</br>
-
 * **Integrantes:** Hêndrick Gonçalves e Alvin Beskow.
-
-</br>
-
 
 # Test results:
 

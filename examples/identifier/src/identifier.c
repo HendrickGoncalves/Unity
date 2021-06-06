@@ -29,12 +29,14 @@ int identifier(void) {
   fp = fopen("src/test_file.txt", "r");
 
   length = 0;
-  //printf("Identificador: ");
+
   achar = fgetc(fp);
   valid_id = valid_s(achar);
+  
   if(valid_id) {
     length = 1;
   }
+
   achar = fgetc(fp);
   while(achar != '\n') {
     if(!(valid_f(achar))) {
@@ -45,12 +47,9 @@ int identifier(void) {
   }
 
   if (valid_id && (length >= 1) && (length < 6)) {
-    //printf("Valido\n");
     fclose(fp);
     return 0;
-  }
-  else {
-    //printf("Invalido\n");
+  } else {
     fclose(fp);
     return 1;
   }
