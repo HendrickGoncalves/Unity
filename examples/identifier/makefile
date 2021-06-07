@@ -69,7 +69,7 @@ sanitizer:
 	- ./$(TARGET1) -v
 run:
 	- ./cov
-	- gcov -b identifier.gcda
+	- gcov -b identifier.c
 
 valgrind:
 	valgrind --leak-check=full --show-leak-kinds=all ./cov 
