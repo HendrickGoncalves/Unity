@@ -19,6 +19,17 @@ static char str11[] = {"1abcde\n"};
 static char str12[] = {"abcdef0\n"};
 static char str13[] = {"9\n"};
 
+
+/* ----------------------------------------------------------------------------------- */
+
+static Unity_Test test_buffer[] = {{"A\n"}, {"@\n"}, {"Z\n"}, {"[\n"}, {"a\n"}, {"-\n"}, {"z\n"}, {"{\n"},
+                                {"AA\n"}, {"A@\n"}, {"ZZ\n"}, {"Z[\n"}, {"aa\n"}, {"a-\n"}, {"zz\n"}, {"z{\n"}, {"a0\n"}, {"a/\n"}, {"a9\n"}, {"a:\n"}};
+
+
+static Unity_Test test_buffer2[] = {{"aa\n"}, {"--\n"}, {"a\n"}, {" \n"}, {"abcdef\n"}, {"abcdefg\n"}};
+
+/* ----------------------------------------------------------------------------------- */
+
 void expect(error_code ret_value, char *test_str) {
     FILE *fp;
     fp = fopen("src/test_file.txt", "w");
@@ -113,6 +124,32 @@ TEST(identifier, IdentifierInvalidStr2) {
 TEST(identifier, IdentifierInvalidDigit) {
     expect(ret_invalid, str13);
     IdentifierTestAction();
+}
+
+TEST(identifier, IdentifierPredTests) {
+    uint8_t i;
+    error_code tmp = 0;
+
+    for (i = 0; i < 20; i++) {
+        //printf("[%d]Tmp: %d -- Test String: %s\n", i, tmp, test_buffer[i].test_string);
+        expect(tmp, test_buffer[i].test_string);
+        IdentifierTestAction();   
+
+        tmp ^= 1;
+    }
+}
+
+TEST(identifier, IdentifierPredTests2) {
+    uint8_t i;
+    error_code tmp = 0;
+
+    for (i = 0; i < 6; i++) {
+        //printf("[%d]Tmp: %d -- Test String: %s\n", i, tmp, test_buffer[i].test_string);
+        expect(tmp, test_buffer2[i].test_string);
+        IdentifierTestAction();   
+
+        tmp ^= 1;
+    }
 }
 
 

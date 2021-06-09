@@ -9,6 +9,11 @@ typedef enum {
     ret_invalid
 } error_code;
 
+typedef struct   {
+    char test_string[10];
+} Unity_Test;
+
+
 int identifier(void);
 int valid_f(char ch);
 int valid_s(char ch);

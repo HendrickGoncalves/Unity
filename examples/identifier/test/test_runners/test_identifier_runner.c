@@ -14,5 +14,7 @@ TEST_GROUP_RUNNER(identifier) {
   RUN_TEST_CASE(identifier, IdentifierValidStr2);
   RUN_TEST_CASE(identifier, IdentifierInvalidStr);
   RUN_TEST_CASE(identifier, IdentifierInvalidStr2);
-  RUN_TEST_CASE(identifier, IdentifierInvalidDigit);
+  RUN_TEST_CASE(identifier, IdentifierInvalidDigit);  
+  RUN_TEST_CASE(identifier, IdentifierPredTests);
+  RUN_TEST_CASE(identifier, IdentifierPredTests2);
 }
