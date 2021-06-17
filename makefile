@@ -1,14 +1,11 @@
 all:
-	make -C examples/TF
+	make -C examples/crypt
 
 cov: 
-	make cov -C examples/TF
+	make cov -C examples/crypt
 
 clean: 
-	make clean -C examples/TF
+	make clean -C examples/crypt
 
 run:
-	./examples/TF/cov
-
-gcov:
-	gcov -b TF.gcno	
+	./examples/crypt/cov
