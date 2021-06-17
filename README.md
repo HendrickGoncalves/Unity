@@ -6,7 +6,7 @@
 
 Use "make" to compile and run all available tests.
 
-All tests are implemented at examples/identifier directory.
+All tests are implemented at examples/crypt directory.
 
 # Crypt Test Results:
 
