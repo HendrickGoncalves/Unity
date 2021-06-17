@@ -8,7 +8,7 @@ Use "make" to compile and run all available tests.
 
 All tests are implemented at examples/identifier directory.
 
-# Test results:
+# Crypt Test Results:
 
 [![Build Status](https://travis-ci.com/HendrickGoncalves/Unity.svg?branch=main)](https://travis-ci.com/HendrickGoncalves/Unity)
 

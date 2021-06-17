@@ -131,7 +131,6 @@ TEST(identifier, IdentifierPredTests) {
     error_code tmp = 0;
 
     for (i = 0; i < 20; i++) {
-        //printf("[%d]Tmp: %d -- Test String: %s\n", i, tmp, test_buffer[i].test_string);
         expect(tmp, test_buffer[i].test_string);
         IdentifierTestAction();   
 
@@ -144,7 +143,6 @@ TEST(identifier, IdentifierPredTests2) {
     error_code tmp = 0;
 
     for (i = 0; i < 6; i++) {
-        //printf("[%d]Tmp: %d -- Test String: %s\n", i, tmp, test_buffer[i].test_string);
         expect(tmp, test_buffer2[i].test_string);
         IdentifierTestAction();   
 

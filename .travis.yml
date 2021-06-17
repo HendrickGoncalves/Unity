@@ -1,5 +1,3 @@
-# Travis example for Identifier created by Rafael Garibotti
-
 sudo: false
 language: c
 compiler:
@@ -14,5 +12,4 @@ install:
   - "[ $GCC = gcc ] && export GCC=gcc || true"
   - sudo apt-get install valgrind
 script:
-  - cd examples/identifier; make
-#  - make test
+  - cd examples/TF; make

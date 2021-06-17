@@ -1,14 +1,14 @@
 all:
-	make -C examples/identifier
+	make -C examples/TF
 
 cov: 
-	make cov -C examples/identifier
+	make cov -C examples/TF
 
 clean: 
-	make clean -C examples/identifier
+	make clean -C examples/TF
 
 run:
-	./examples/identifier/cov
+	./examples/TF/cov
 
 gcov:
-	gcov -b identifier.gcno	
+	gcov -b TF.gcno	
