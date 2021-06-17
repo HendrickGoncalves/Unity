@@ -13,3 +13,4 @@ install:
   - sudo apt-get install valgrind
 script:
   - cd examples/TF; make
+#  - make test
