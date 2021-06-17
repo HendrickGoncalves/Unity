@@ -14,5 +14,5 @@ install:
   - "[ $GCC = gcc ] && export GCC=gcc || true"
   - sudo apt-get install valgrind
 script:
-  - cd examples/identifier; make
+  - cd examples/TF; make
 #  - make test
