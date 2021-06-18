@@ -57,11 +57,22 @@ void CryptLogic(void) {
 
     crypt(key, input, crypt_type, enc_dec, output);
 
+    printf("\nOutput Encrypted: \n");
+    for (i = 0; i < 4; i++)
+        printf("%08X ", output[i]);
+    printf("\n");
+    
+
     enc_dec ^= 1;
 
     crypt(key, output, crypt_type, enc_dec, tmp);
 
     TEST_ASSERT_EQUAL_UINT32_ARRAY(expect, tmp, 4);
+
+    // printf("\nOutput Decrypted: \n");
+    // for (i = 0; i < 4; i++)
+    //     printf("%08X ", tmp[i]);
+    // printf("\n");
 }
 
 TEST_GROUP(crypt);
@@ -75,7 +86,7 @@ TEST_TEAR_DOWN(crypt) {
 
 TEST(crypt, CryptLogic) {
     uint8_t i;
-    uint32_t plan[4] = {0x01010101, 0x01234567L, 0xFEDCBA98L, 0x5A5A5A5AL};
+    uint32_t plan[4] = {0  , 0  , 0  , 0};
 
     for (i = 0; i < 7; i++) {
         initContext(i, plan, ENCODER);
