@@ -77,6 +77,10 @@ run:
 valgrind:
 	valgrind --leak-check=full --show-leak-kinds=all ./cov 
 
+#cppcheck:
+	#cppcheck --enable=all --suppress=missingIncludeSystem src/crypt.c
+	#cppcheck --enable=all --suppress=missingIncludeSystem test/test_crypt.c
+
 clean:
 	rm -fr $(ALL) *.o *cov* *.dSYM *.gcda *.gcno *.gcov 
 
