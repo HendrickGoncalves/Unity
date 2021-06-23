@@ -27,6 +27,8 @@ endif
 
 UNITY_ROOT=../..
 
+SRC_MAIN_FILES += $(wildcard src/*.c)
+
 CFLAGS=-std=c99
 CFLAGS += -Wall
 CFLAGS += -Wextra
@@ -56,7 +58,7 @@ SRC_FILES1=\
 INC_DIRS=-Isrc -I$(UNITY_ROOT)/src -I$(UNITY_ROOT)/extras/fixture/src
 SYMBOLS=
 
-all: clean cov run valgrind clean sanitizer
+all: clean cppcheck cov run valgrind clean sanitizer
 
 cov: 
 	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $@ 
@@ -77,9 +79,8 @@ run:
 valgrind:
 	valgrind --leak-check=full --show-leak-kinds=all ./cov 
 
-#cppcheck:
-	#cppcheck --enable=all --suppress=missingIncludeSystem src/crypt.c
-	#cppcheck --enable=all --suppress=missingIncludeSystem test/test_crypt.c
+cppcheck:
+	cppcheck --enable=all --suppress=missingIncludeSystem src/*.c
 
 clean:
 	rm -fr $(ALL) *.o *cov* *.dSYM *.gcda *.gcno *.gcov 
