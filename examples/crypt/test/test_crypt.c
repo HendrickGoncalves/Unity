@@ -98,7 +98,6 @@ void AES128_EncTestAction(enc_type type) {
     
 }
 
-
 void Crypt_KeySizeTestAction(void) { 
     uint32_t output_golden[4], output[4];
     int i;
@@ -130,7 +129,19 @@ void Crypt_OutputSizeTest(void) {
     crypt(key, input, crypt_type, enc_dec, output_golden);
     crypt(key, input, crypt_type, enc_dec, output);
 
-    TEST_ASSERT_EQUAL_UINT32 (test_var, output[4]);
+    TEST_ASSERT_EQUAL_UINT32(test_var, output[4]);
+}
+
+void Crypt_EncDecTest(uint8_t encDec_test) {
+    uint32_t output_enc[4], output_dec[4];
+    uint32_t array_test[4];
+
+    memcpy(array_test, input, sizeof(array_test));
+
+    crypt(key, input, crypt_type, encDec_test, output_enc);
+    crypt(key, output_enc, crypt_type, 0, output_dec);
+
+    TEST_ASSERT_EQUAL_UINT32_ARRAY(input, output_dec, 4);   
 }
 
 TEST_GROUP(crypt);
@@ -193,5 +204,14 @@ TEST(crypt, Crypt_OutputSizeTest) {
         initContext(i, plan, ENCODER);
         Crypt_OutputSizeTest();
     }
+    
+}
+
+TEST(crypt, Crypt_EncDecTest) {
+    uint32_t plan[4] = {0x01234567, 0x89ABCDEF, 0x01234567, 0x89ABCDEF};
+
+    initContext(0, plan, ENCODER);
+
+    Crypt_EncDecTest(2);
     
 }
