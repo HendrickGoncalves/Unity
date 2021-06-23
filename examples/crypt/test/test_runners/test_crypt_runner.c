@@ -8,4 +8,5 @@ TEST_GROUP_RUNNER(crypt) {
   RUN_TEST_CASE(crypt, Crypt_InputSizeTest);
   RUN_TEST_CASE(crypt, Crypt_OutputSizeTest); 
   RUN_TEST_CASE(crypt, Crypt_EncDecTest); 
+  RUN_TEST_CASE(crypt, Crypt_EncTypeTest); 
 }

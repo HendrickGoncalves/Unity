@@ -16,8 +16,7 @@ uint32_t key_test[9];
 
 /* ----------------------------------------------------------------------------------- */
 
-void initContext(enc_type type, uint32_t *msg, enc_dec_type action) {
-    int i;
+void initContext(enc_type type, const uint32_t *msg, enc_dec_type action) {
 
     memset(key, 0, sizeof(key));
 
@@ -63,7 +62,6 @@ void CryptLogic(void) {
     uint32_t output[4];
     uint32_t expect[4];
     uint32_t tmp[4];
-    int i;
 
     memset(output, 0, sizeof(output));
     memcpy(expect, input, sizeof(expect));
@@ -100,7 +98,6 @@ void AES128_EncTestAction(enc_type type) {
 
 void Crypt_KeySizeTestAction(void) { 
     uint32_t output_golden[4], output[4];
-    int i;
 
     memset(key_test, 0xFFFFFFFF, sizeof(key_test));
     memcpy(key_test, key, size_test*sizeof(uint32_t));
@@ -132,16 +129,27 @@ void Crypt_OutputSizeTest(void) {
     TEST_ASSERT_EQUAL_UINT32(test_var, output[4]);
 }
 
-void Crypt_EncDecTest(uint8_t encDec_test) {
+void Crypt_EncDecTestAction(uint8_t encdec_test) {
     uint32_t output_enc[4], output_dec[4];
     uint32_t array_test[4];
 
     memcpy(array_test, input, sizeof(array_test));
 
-    crypt(key, input, crypt_type, encDec_test, output_enc);
+    crypt(key, input, crypt_type, encdec_test, output_enc);
     crypt(key, output_enc, crypt_type, 0, output_dec);
 
     TEST_ASSERT_EQUAL_UINT32_ARRAY(input, output_dec, 4);   
+}
+
+void Crypt_EncTypeTestAction(void) {
+    uint32_t output[4];
+    uint32_t test_var = 0xFFFFFFFF;
+
+    memset(output, 0xFFFFFFFF, sizeof(output));
+
+    crypt(key, input, 7, enc_dec, output);
+
+    TEST_ASSERT_EQUAL_UINT32(test_var, output[3]);
 }
 
 TEST_GROUP(crypt);
@@ -212,6 +220,9 @@ TEST(crypt, Crypt_EncDecTest) {
 
     initContext(0, plan, ENCODER);
 
-    Crypt_EncDecTest(2);
-    
+    Crypt_EncDecTestAction(2);
+}
+
+TEST(crypt, Crypt_EncTypeTest) { //testa type maior do que 6
+    Crypt_EncTypeTestAction();
 }
