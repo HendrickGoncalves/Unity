@@ -18,7 +18,6 @@ crypt(uint32_t* key, uint32_t* input, uint8_t type, uint8_t enc_dec, uint32_t* o
   switch (type) {
     case 0       : xtea(key, input, enc_dec, output); break;
 	  case 1 ... 3 : aes(key, input, type, enc_dec, output); break;
-	  case 4 ... 6 : blowfish_128(key, input, type, enc_dec, output); break;
-    default: break;
+	  case 4 ... 7 : blowfish_128(key, input, type, enc_dec, output); break;
   }
 }
